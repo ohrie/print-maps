@@ -50,11 +50,15 @@ function addStyle() {
         nsCount++;
         var ns = document.createElement("option");
         ns.value = style;
-        ns.appendChild(document.createTextNode("New Style" +nsCount));
-        document.getElementById("styleSelect").appendChild(ns);
+        var str = "Mapbox "+style.slice(style.indexOf("styles/")+7,style.lastIndexOf("/"))+" Style "+nsCount;
+        ns.appendChild(document.createTextNode(str));
+        var list = document.getElementById("styleSelect");
+        // document.getElementById("styleSelect").appendChild(ns);
+        list.insertBefore(ns, list.childNodes[0]);
         // document.getElementById("form-modal").addClass('d-none');
         // document.getElementById("style-success").removeClass('d-none');
-        console.log("Style added");
+        // console.log("Style added");
+        alert(str+" added successfully!");
     }
 }
 
