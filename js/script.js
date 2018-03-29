@@ -24,7 +24,7 @@
 mapboxgl.accessToken = '';
 
 var form = document.getElementById('config');
-
+var nsCount = 0;
 if (!mapboxgl.accessToken || mapboxgl.accessToken.length < 10) {
     // Don't use Mapbox style without access token
     for (var i = form.styleSelect.length - 1; i >= 0; i--) {
@@ -40,6 +40,23 @@ if (form.styleSelect.value.indexOf('mapbox') >= 0)
 else
     document.getElementById('openmaptiles-attribution').style.display = 'block';
 
+
+// Add style
+function addStyle() {
+    var token = document.getElementById('newstyle').accesstoken.value;
+    var style = document.getElementById('newstyle').styleurl.value;
+    if (token!='' && style!='') {
+        mapboxgl.accessToken = token;
+        nsCount++;
+        var ns = document.createElement("option");
+        ns.value = style;
+        ns.appendChild(document.createTextNode("New Style" +nsCount));
+        document.getElementById("styleSelect").appendChild(ns);
+        // document.getElementById("form-modal").addClass('d-none');
+        // document.getElementById("style-success").removeClass('d-none');
+        console.log("Style added");
+    }
+}
 
 //
 // Interactive map
@@ -349,6 +366,7 @@ function toPixels(length) {
 //
 
 document.getElementById('generate-btn').addEventListener('click', generateMap);
+document.getElementById('style-btn').addEventListener('click', addStyle);
 
 function generateMap() {
     'use strict';
