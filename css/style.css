@@ -1,5 +1,9 @@
 body {
-    padding-bottom: 10px;
+    /*padding-bottom: 10px;*/
+    background: #fafafa;
+    color: #37474f;
+    /*font-family: 'Noto Sans', sans-serif;*/
+    overflow-x: hidden;
 }
 
 #error-message {
@@ -8,6 +12,8 @@ body {
 
 .map-container {
     overflow-x: auto;
+    overflow-y: auto;
+    /*min-height: 80vh;*/
 }
 
 #map {
@@ -17,9 +23,9 @@ body {
     margin-left: auto;
     margin-right: auto;
 }
-
-
-
+.purple {
+    background-color: #41295a!important;
+}
 /*
  * Hide high-res map rendering
  */
@@ -30,6 +36,15 @@ body {
     position: fixed;
 }
 
+.selectDiv {
+    bottom: 1rem;
+}
+.labeltext {
+    font-size: 0.8rem;
+    color: #757575;
+    /*position: absolute;*/
+    /*top: .8rem;*/
+}
 
 
 /*
@@ -62,4 +77,13 @@ body {
         -webkit-transform: rotate(180deg);
                 transform: rotate(180deg);
     }
+}
+/* FOOTER CSS */
+footer.page-footer .footer-copyright {
+    height: auto;
+    line-height: 1.5rem;
+    color: rgba(255,255,255,.6);
+    background-color: rgba(0,0,0,.2);
+    text-align: center;
+    font-size: .9rem;
 }

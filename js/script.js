@@ -21,7 +21,7 @@
  * THE SOFTWARE.
  */
  
-mapboxgl.accessToken = '';
+mapboxgl.accessToken = 'pk.eyJ1IjoicGtkZGFwYWNpZmljIiwiYSI6ImNqMDNnZWExdjBhNWozM3AzZGJqbWVsbnAifQ.s6XTs8U9qu8Hwbuc4Fe3zA';
 
 var form = document.getElementById('config');
 var nsCount = 0;
@@ -369,7 +369,7 @@ function toPixels(length) {
 // High-res map rendering
 //
 
-document.getElementById('generate-btn').addEventListener('click', generateMap);
+// document.getElementById('generate-btn').addEventListener('click', generateMap);
 document.getElementById('style-btn').addEventListener('click', addStyle);
 
 function generateMap() {

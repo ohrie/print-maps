@@ -2,66 +2,65 @@
 <html>
 
 <head>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-43582646-2"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'UA-43582646-2');
-</script>
-<meta charset="utf-8"/>
-<title>Print Maps using Mapbox Styles</title>
-<meta name="Description" content="Get high-res prints in .png or .pdf of your Mapbox map styles using this tool. Prasanta Kr Dutta is an Information Experience Designer from NID Bangalore, passionate about UI/UX design, Data Visualisation and Photography. He loves solving problems in an aesthetically pleasing way. When he is not designing, he likes to indulge in culinary pleasures.">
-<meta name="Keywords" content="Mapbox, Custom maps, Map styles, MapboxGL, Mapbox api, User interface, User Experience, Designer, Communication Design, Narrative Visualization, Information visualization, Data Narratives, Graphic Design, User centered design, UX, UI, Data Art, Web design, Photography, Travel, Creative writer, Electronics and Communication Engineer, National Institute of Design, National Institute of Technology Durgapur">
-<meta name="author" content="Prasanta Kr Dutta">
-<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no"/>
-<link rel="shortcut icon" href="http://prasantakrdutta.com/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.2/mapbox-gl.css"/>
-<!-- <link rel="stylesheet" href="css/bootstrap.min.css"/> -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<link rel="stylesheet" href="css/style.css"/>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-43582646-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-43582646-2');
+    </script>
+    <meta charset="utf-8" />
+    <title>Print Maps using Mapbox Styles</title>
+    <meta name="Description" content="Get high-res prints in .png or .pdf of your Mapbox map styles using this tool. Prasanta Kr Dutta is an Information Experience Designer from NID Bangalore, passionate about UI/UX design, Data Visualisation and Photography. He loves solving problems in an aesthetically pleasing way. When he is not designing, he likes to indulge in culinary pleasures.">
+    <meta name="Keywords" content="Mapbox, Custom maps, Map styles, MapboxGL, Mapbox api, User interface, User Experience, Designer, Communication Design, Narrative Visualization, Information visualization, Data Narratives, Graphic Design, User centered design, UX, UI, Data Art, Web design, Photography, Travel, Creative writer, Electronics and Communication Engineer, National Institute of Design, National Institute of Technology Durgapur">
+    <meta name="author" content="Prasanta Kr Dutta">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="shortcut icon" href="http://prasantakrdutta.com/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.2/mapbox-gl.css" />
+    <!-- <link rel="stylesheet" href="css/bootstrap.min.css"/> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="http://prasantakrdutta.com/css/mdb.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
-<div class="container">
-
-<div class="page-header mt-5">
-  <h1>Print Maps</h1>
-  <p class="lead">High-resolution maps in the browser, for printing.</p>
-  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#exampleModal">Add Custom Style</button>
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Add you custom style from Mapbox Studio</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <div class="container">
+        <div class="page-header mt-5">
+            <h1 class="font-weight-bold">Print Maps</h1>
+            <p class="lead">High-resolution maps in the browser | Printing made-easy</p>
+            <button type="button" class="btn btn-deep-purple .waves-effect" data-toggle="modal" data-target="#exampleModal">+ Add Custom Mapbox Style</button>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Add your custom style from Mapbox Studio</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-        </div>
-        <form onsubmit="addStyle(); return false;" id="newstyle">
-        <div class="modal-body" id="form-modal">          
-            <div class="form-group">
-              <label for="accesstoken">Access Token</label>
-              <input type="text" class="form-control" id="accesstoken" aria-describedby="emailHelp" placeholder="pk.eyJ1Ijoic...">
-              <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                        </div>
+                        <form onsubmit="addStyle(); return false;" id="newstyle">
+                            <div class="modal-body" id="form-modal">
+                                <div class="md-form form-group mt-3">
+                                    <input type="text" class="form-control" id="accesstoken" aria-describedby="emailHelp" placeholder="pk.eyJ1Ijoic...">
+                                    <label for="accesstoken">Access Token</label>
+                                </div>
+                                <div class="md-form form-group mt-5">
+                                    <input type="text" class="form-control" id="styleurl" placeholder="mapbox://styles/...">
+                                    <label for="styleurl">Style URL</label>
+                                </div>
+                            </div>
+                            <p class="text-center lead d-none" id="style-success">Style Added Sucessfully!</p>
+                            <div class="modal-footer">
+                                <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+                                <button type="submit" class="btn btn-deep-purple btn-primary" data-dismiss="modal" id="style-btn">Add Style</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-              <label for="styleurl">Style URL</label>
-              <input type="text" class="form-control" id="styleurl" placeholder="mapbox://styles/...">
-            </div>                     
         </div>
-        <p class="text-center lead d-none" id="style-success">Style Added Sucessfully!</p> 
-        <div class="modal-footer">
-          <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
-          <button type="submit" class="btn btn-primary" data-dismiss="modal" id="style-btn">Add Style</button>
-        </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
 
 <noscript>
   <div class="alert alert-danger" role="alert">
@@ -69,180 +68,205 @@ gtag('config', 'UA-43582646-2');
   </div>
 </noscript>
 
-<form onsubmit="generateMap(); return false;" id="config" class="mt-5">
-  <fieldset id="config-fields">
-  <div class="row">
-    <div class="col-sm-4">
-      <div class="form-group">
-        <label>Unit</label><br>
-        <label class="radio-inline">
-          <input type="radio" name="unitOptions" value="in" id="inUnit" checked> Inch
-        </label>
-        <label class="radio-inline">
-          <input type="radio" name="unitOptions" value="mm" id="mmUnit"> Millimeter
-        </label>
-      </div>
-    </div>
-    <div class="col-sm-3">
-      <div class="form-group">
-        <label>Output format</label><br>
-        <label class="radio-inline">
-          <input type="radio" name="outputOptions" value="png" checked> PNG
-        </label>
-        <label class="radio-inline">
-          <input type="radio" name="outputOptions" value="pdf"> PDF
-        </label>
-      </div>
-    </div>
-    <div class="col-sm-5">
-      <div class="form-group">
-        <label for="styleSelect">Map style</label>
-        <select id="styleSelect" class="form-control">
-          <option value="mapbox://styles/mapbox/bright-v9">Mapbox Bright</option>
-          <option value="mapbox://styles/mapbox/outdoors-v10">Mapbox Outdoors</option>
-          <option value="mapbox://styles/mapbox/emerald-v8">Mapbox Emerald</option>
-          <option value="mapbox://styles/mapbox/light-v9">Mapbox Light</option>
-          <option value="mapbox://styles/mapbox/streets-v10">Mapbox Streets</option>
-          <option value="https://openmaptiles.github.io/positron-gl-style/style-cdn.json">Klokantech Positron</option>
-          <option value="https://openmaptiles.github.io/dark-matter-gl-style/style-cdn.json">Klokantech Dark Matter</option>
-          <option value="https://openmaptiles.github.io/osm-bright-gl-style/style-cdn.json">Klokantech OSM Bright</option>
-          <option value="https://openmaptiles.github.io/klokantech-basic-gl-style/style-cdn.json">Klokantech Basic</option>
-          <option value="https://openmaptiles.github.io/klokantech-terrain-gl-style/style-cdn.json">Klokantech Terrain</option>
-          <option value="https://openmaptiles.github.io/fiord-color-gl-style/style-cdn.json">Klokantech Fiord Color</option>
-          <option value="https://openmaptiles.github.io/toner-gl-style/style-cdn.json">Klokantech Toner</option>
-          <option value="http://osm-liberty.lukasmartinelli.ch/style.json">OSM Liberty</option>
-        </select>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-2">
-      <div class="form-group" id="widthGroup">
-        <label for="widthInput">Width</label>
-        <input type="text" class="form-control" id="widthInput" autocomplete="off" value="8">
-      </div>
-    </div>
-    <div class="col-sm-2">
-      <div class="form-group" id="heightGroup">
-        <label for="heightInput">Height</label>
-        <input type="text" class="form-control" id="heightInput" autocomplete="off" value="6">
-      </div>
-    </div>
-    <div class="col-sm-3">
-      <div class="form-group" id="dpiGroup">
-        <label for="dpiInput">DPI</label>
-        <input type="text" class="form-control" id="dpiInput" autocomplete="off" value="300">
-      </div>
-    </div>
-    <div class="col-sm-5">
-      <div class="row">
-        <div class="col-sm-4">
-          <div class="form-group" id="latGroup">
-            <label for="latInput">Latitude</label>
-            <input type="text" class="form-control" id="latInput" autocomplete="off" value="">
-          </div>
+        <form onsubmit="generateMap(); return false;" id="config" class="my-5">
+            <fieldset id="config-fields">
+                <div class="card">
+                    <div class="card-header lead">Configure your map</div>
+                    <div class="card-body">
+                        <div class="row my-3">
+                            <div class="col-sm-4 selectDiv">
+                                <div class="form-group">
+                                    <label class="labeltext" for="styleSelect">Map style</label>
+                                    <select id="styleSelect" class="form-control">
+              <option value="mapbox://styles/mapbox/bright-v9">Mapbox Bright</option>
+              <option value="mapbox://styles/mapbox/outdoors-v10">Mapbox Outdoors</option>
+              <option value="mapbox://styles/mapbox/emerald-v8">Mapbox Emerald</option>
+              <option value="mapbox://styles/mapbox/light-v9">Mapbox Light</option>
+              <option value="mapbox://styles/mapbox/streets-v10">Mapbox Streets</option>
+              <option value="https://openmaptiles.github.io/positron-gl-style/style-cdn.json">Klokantech Positron</option>
+              <option value="https://openmaptiles.github.io/dark-matter-gl-style/style-cdn.json">Klokantech Dark Matter</option>
+              <option value="https://openmaptiles.github.io/osm-bright-gl-style/style-cdn.json">Klokantech OSM Bright</option>
+              <option value="https://openmaptiles.github.io/klokantech-basic-gl-style/style-cdn.json">Klokantech Basic</option>
+              <option value="https://openmaptiles.github.io/klokantech-terrain-gl-style/style-cdn.json">Klokantech Terrain</option>
+              <option value="https://openmaptiles.github.io/fiord-color-gl-style/style-cdn.json">Klokantech Fiord Color</option>
+              <option value="https://openmaptiles.github.io/toner-gl-style/style-cdn.json">Klokantech Toner</option>
+              <option value="http://osm-liberty.lukasmartinelli.ch/style.json">OSM Liberty</option>
+            </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="md-form form-group" id="latGroup">
+                                            <input type="text" class="form-control" id="latInput" autocomplete="off" value="">
+                                            <label for="latInput">Latitude</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="md-form form-group" id="lonGroup">
+                                            <input type="text" class="form-control" id="lonInput" autocomplete="off" value="">
+                                            <label for="lonInput">Longitude</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="md-form form-group" id="zoomGroup">
+                                            <input type="text" class="form-control" id="zoomInput" autocomplete="off" value="">
+                                            <label for="zoomInput">Zoom</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="my-3">
+                        <div class="row mt-5">
+                            <div class="col-sm-2 selectDiv">
+                                <div class="form-group">
+                                    <label class="labeltext">Unit</label><br>
+                                    <label class="radio-inline mr-2">
+              <input type="radio" name="unitOptions" value="in" id="inUnit" checked> Inch
+            </label>
+                                    <label class="radio-inline">
+              <input type="radio" name="unitOptions" value="mm" id="mmUnit"> Millimeter
+            </label>
+                                </div>
+                            </div>
+                            <div class="col-sm-2 selectDiv">
+                                <div class="form-group">
+                                    <label class="labeltext">Output format</label><br>
+                                    <label class="radio-inline mr-3">
+              <input type="radio" name="outputOptions" value="png" checked> PNG
+            </label>
+                                    <label class="radio-inline">
+              <input type="radio" name="outputOptions" value="pdf"> PDF
+            </label>
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="md-form form-group" id="widthGroup">
+                                            <input type="text" class="form-control" id="widthInput" autocomplete="off" value="8">
+                                            <label for="widthInput">Width</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="md-form form-group" id="heightGroup">
+                                            <input type="text" class="form-control" id="heightInput" autocomplete="off" value="6">
+                                            <label for="heightInput">Height</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="md-form form-group" id="dpiGroup">
+                                            <input type="text" class="form-control" id="dpiInput" autocomplete="off" value="300">
+                                            <label for="dpiInput">DPI</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="alert alert-danger" role="alert" id="error-message"></div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <p class="lead font-weight-bold">Map</p>
+                                <hr class="my-3">
+                            </div>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="map-container">
+                                <div id="map"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="row justify-content-center my-3">
+                            <div class="col-xs-12 col-lg-6">
+                                <button type="submit" class="btn btn-deep-purple btn-lg btn-block .waves-effect" id="generate-btn">Export above Map</button>
+                            </div>
+                            <div class="w-100"></div>
+                            <div class="" id="spinner"></div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+        <!-- <div class="alert alert-danger" role="alert" id="error-message"></div> -->
+
+       <!--  <div class="row justify-content-center my-3">
+            <div class="col-xs-12 col-lg-6">
+                <button type="submit" class="btn btn-deep-purple btn-lg btn-block .waves-effect" id="generate-btn">Export above Map</button>
+            </div>
+            <div class="w-100"></div>
+            <div class="" id="spinner"></div>
+        </div> -->
+        <div class="row my-5 pt-5">
+            <div class="col-sm-12">
+                <div class="">
+                    <div class="lead">Required Attribution</div>
+                    <hr class="my-3">
+                    <div class="card-body alert-light" id="mapbox-attribution" style="display: none;">
+                        <p><strong>Attribution of maps is required.</strong> Per the <a href="https://www.mapbox.com/help/how-attribution-works/#static--print">Mapbox attribution requirements:</a></p>
+                        <p><strong>Commerical use is prohibited.</strong></p>
+                        <p>Static and print maps need to be attributed in the same fashion as you would cite a photograph: in a textual description near the image.</p>
+                        <p>If you can include HTML, use this code snippet that includes links to Mapbox &amp; OpenStreetMap:</p>
+                        <pre>© &lt;a href='https://www.mapbox.com/about/maps/'&gt;Mapbox&lt;/a&gt; © &lt;a href='https://www.openstreetmap.org/copyright'&gt;OpenStreetMap&lt;/a&gt; &lt;strong&gt;&lt;a href='https://www.mapbox.com/map-feedback/' target='_blank'&gt;Improve this map&lt;/a&gt;&lt;/strong&gt;</pre>
+                        <p>For print output or if you can’t include links, use this text-only attribution:</p>
+                        <pre>© Mapbox, © OpenStreetMap</pre>
+                    </div>
+                    <div class="panel-body" id="openmaptiles-attribution" style="display: none;">
+                        <p><strong>Attribution of maps is required.</strong> Per the <a href="https://openmaptiles.com/terms/">OpenMapTiles terms of use:</a></p>
+                        <p><strong>Commerical use is prohibited.</strong></p>
+                        <p>The OpenMapTiles has a strict requirement of attribution on the produced maps - whether you use the free, purchased or self-generated map tiles. It is important part of the sustainability strategy. By using OpenMapTiles you agree
+                            to provide such attribution on the maps you display.</p>
+                        <p>For a browsable electronic map based on OpenMapTiles and OpenStreetMap data, the credit should appear in the corner of the map. For example:</p>
+                        <pre>© &lt;a href='https://openmaptiles.org/'&gt;OpenMapTiles&lt;/a&gt; © &lt;a href='https://www.openstreetmap.org/copyright'&gt;OpenStreetMap contributors&lt;/a&gt; &lt;strong&gt;&lt;a href='https://www.mapbox.com/map-feedback/' target='_blank'&gt;Improve this map&lt;/a&gt;&lt;/strong&gt;</pre>
+                        <p>For printed maps, images or video recording a similar attribution should be made in a clearly visible textual description near the map, in the same fashion as if you cite a photograph.</p>
+                        <p>Other datasets (such as Satellite or DEM derived data) may require attribution as well.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-sm-4">
-          <div class="form-group" id="lonGroup">
-            <label for="lonInput">Longitude</label>
-            <input type="text" class="form-control" id="lonInput" autocomplete="off" value="">
-          </div>
+
+        <!-- Error Modal -->
+        <div class="modal in" id="errorModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" onclick="closeErrorModal()"><span>&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title">Print Maps Error</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p id="modal-error-text"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" onclick="closeErrorModal()">Close</button>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-sm-4">
-          <div class="form-group" id="zoomGroup">
-            <label for="zoomInput">Zoom</label>
-            <input type="text" class="form-control" id="zoomInput" autocomplete="off" value="">
-          </div>
+        <div class="modal-backdrop in" id="modalBackdrop" style="display: none;"></div>
         </div>
-      </div>
-    </div>
-  </div>
-  </fieldset>
-</form>
-<div class="alert alert-danger" role="alert" id="error-message"></div>
-<div class="row">
-  <div class="col-sm-12">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Map</h3>
-      </div>
-      <div class="panel-body map-container">
-        <div id="map"></div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-sm-12">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Required Attribution</h3>
-      </div>
-      <div class="panel-body" id="mapbox-attribution" style="display: none;">
-        <p><strong>Attribution of maps is required.</strong> Per the <a href="https://www.mapbox.com/help/how-attribution-works/#static--print">Mapbox attribution requirements:</a></p>
-        <p><strong>Commerical use is prohibited.</strong></p>
-        <p>Static and print maps need to be attributed in the same fashion as you would cite a photograph: in a textual description near the image.</p>
-        <p>If you can include HTML, use this code snippet that includes links to Mapbox & OpenStreetMap:</p>
-        <pre>© &lt;a href='https://www.mapbox.com/about/maps/'&gt;Mapbox&lt;/a&gt; © &lt;a href='https://www.openstreetmap.org/copyright'&gt;OpenStreetMap&lt;/a&gt; &lt;strong&gt;&lt;a href='https://www.mapbox.com/map-feedback/' target='_blank'&gt;Improve this map&lt;/a&gt;&lt;/strong&gt;</pre>
-        <p>For print output or if you can’t include links, use this text-only attribution:</p>
-        <pre>© Mapbox, © OpenStreetMap</pre>
-      </div>
-      <div class="panel-body" id="openmaptiles-attribution" style="display: none;">
-        <p><strong>Attribution of maps is required.</strong> Per the <a href="https://openmaptiles.com/terms/">OpenMapTiles terms of use:</a></p>
-        <p><strong>Commerical use is prohibited.</strong></p>
-        <p>The OpenMapTiles has a strict requirement of attribution on the produced maps - whether you use the free, purchased or self-generated map tiles. It is important part of the sustainability strategy. By using OpenMapTiles you agree to provide such attribution on the maps you display.</p>
-        <p>For a browsable electronic map based on OpenMapTiles and OpenStreetMap data, the credit should appear in the corner of the map. For example:</p>
-        <pre>© &lt;a href='https://openmaptiles.org/'&gt;OpenMapTiles&lt;/a&gt; © &lt;a href='https://www.openstreetmap.org/copyright'&gt;OpenStreetMap contributors&lt;/a&gt; &lt;strong&gt;&lt;a href='https://www.mapbox.com/map-feedback/' target='_blank'&gt;Improve this map&lt;/a&gt;&lt;/strong&gt;</pre>
-        <p>For printed maps, images or video recording a similar attribution should be made in a clearly visible textual description near the map, in the same fashion as if you cite a photograph.</p>
-        <p>Other datasets (such as Satellite or DEM derived data) may require attribution as well.</p>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-sm-12">
-    <button type="submit" class="btn btn-primary btn-lg" id="generate-btn">Generate Map</button>
-    <div id="spinner"></div>
-  </div>
-</div>
+        <!-- footer -->
+        <footer class="page-footer mt-0 purple center-on-small-only">
+            <div class="footer-copyright text-center">
+                <div class="container-fluid">
+                    <div class="row justify-content-center">
+                        <span class="text=justify py-3 px-3">Print Maps is a project by <a href="//mpetroff.net/" target="_blank">Matthew Petroff</a>. The code behind this site is available on <a href="https://github.com/mpetroff/print-maps" target="_blank">GitHub</a>. My modified fork is available <a href="https://github.com/pkd2512/print-maps" target="_blank"> here </a></span>
+                    </div>
+                </div>
+            </div>
+        </footer>
 
-<!-- Error Modal -->
-<div class="modal in" id="errorModal" tabindex="-1" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" onclick="closeErrorModal()"><span>&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title">Print Maps Error</h4>
-      </div>
-      <div class="modal-body">
-        <p id="modal-error-text"></p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" onclick="closeErrorModal()">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="modal-backdrop in" id="modalBackdrop" style="display: none;"></div>
 
-<hr>
-
-<footer>
-  <p>
-    Print Maps is a project by <a href="//mpetroff.net/">Matthew Petroff</a>.
-    The code behind this site is available on <a href="https://github.com/mpetroff/print-maps">GitHub</a>. My modified fork is available <a href="https://github.com/pkd2512/print-maps"> here </a>
-  </p>
-</footer>
-
-</div>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script type="text/javascript" src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.2/mapbox-gl.js"></script>
-<script type="text/javascript" src="//cdn.jsdelivr.net/canvas-toblob/0.1/canvas-toBlob.min.js"></script>
-<script type="text/javascript" src="//cdn.rawgit.com/eligrey/FileSaver.js/1.3.3/FileSaver.min.js"></script>
-<script type="text/javascript" src="//cdn.jsdelivr.net/jspdf/1.3.4/jspdf.min.js"></script>
-<script type="text/javascript" src="js/script.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="http://prasantakrdutta.com/js/mdb.min.js"></script>
+        <script type="text/javascript" src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.2/mapbox-gl.js"></script>
+        <script type="text/javascript" src="//cdn.jsdelivr.net/canvas-toblob/0.1/canvas-toBlob.min.js"></script>
+        <script type="text/javascript" src="//cdn.rawgit.com/eligrey/FileSaver.js/1.3.3/FileSaver.min.js"></script>
+        <script type="text/javascript" src="//cdn.jsdelivr.net/jspdf/1.3.4/jspdf.min.js"></script>
+        <script type="text/javascript" src="js/script.js"></script>
 
 </body>
+
 </html>
