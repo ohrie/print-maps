@@ -1,5 +1,7 @@
 # Print Maps
 
+<http://prasantakrdutta.com/print-maps/>
+
 Web maps normally don't print well, as their resolution is much lower than
 normal print resolution, not to mention the various other unwanted text and
 elements that print along with the map. Print Maps changes that by leveraging
